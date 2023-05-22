@@ -1,7 +1,25 @@
 <?php
 session_start();
 
+// $smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// $bigLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+// $numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// $specialLetters = ["!", "?", "%", "$", "&", "*", "-", "+", "/"];
 
+$lunghezzaPassword = $_GET['lunghezzaPassword'];
+//$allLetters = array_merge($smallLetters, $bigLetters, $numbers, $specialLetters);
+function passwordGenerator($lunghezzaPassword){
+    $myPassword = '';
+    $smallLetters = 'abcdefghijklmnopqrstuvwxyz';
+    $upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $numbers = '0123456789';
+    $specialLetters = '!@#$%^&*';
+    $all = $smallLetters . $upperLetters . $numbers . $specialLetters;
+    $contPass = strlen($all);
+    $myPassword = substr(str_shuffle($all), 0, $lunghezzaPassword);
+
+    return $myPassword;
+};
 
 ?>
 
@@ -21,14 +39,21 @@ session_start();
             <h2>Genera una password sicura</h2>
         </div>
         <div class="container p-3 bg-acqua rounded">
-            <p></p>
+            <p><?php 
+                if (empty($lunghezzaPassword)) {
+                    echo 'Nessun parametro valido inserito';
+                } else {
+                    echo 'la tua password è: ' . passwordGenerator($lunghezzaPassword);
+                }
+            ?>
+            </p>
         </div>
         <div class="container pt-2 form-section mt-2 rounded">
             <div class="col-12 text-start p-5">
                 <form action="" method="get">
                     <div class="d-flex justify-content-around align-items-center">
                         <p>Lunghezza Password:</p>
-                        <input type="text" name="password" placeholder="password" class="p-1 rounded">
+                        <input type="number" min="6" max="12" name="lunghezzaPassword" placeholder="lunghezza password" class="p-1 rounded" style="width:200px;">
                     </div>
                     <div class="d-flex justify-content-around">
                         <p>Consenti ripetizioni di uno o più caratteri:</p>
