@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.bg-acqua{
+    background-color: #cff4fc;
+}
+
+.form-section{
+    background-color: white;
+}
+
 body{
     background-color: #001632;
 }
