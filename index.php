@@ -1,25 +1,7 @@
 <?php
 session_start();
 
-// $smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// $bigLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-// $numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-// $specialLetters = ["!", "?", "%", "$", "&", "*", "-", "+", "/"];
-
-$lunghezzaPassword = $_GET['lunghezzaPassword'];
-//$allLetters = array_merge($smallLetters, $bigLetters, $numbers, $specialLetters);
-function passwordGenerator($lunghezzaPassword){
-    $myPassword = '';
-    $smallLetters = 'abcdefghijklmnopqrstuvwxyz';
-    $upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $numbers = '0123456789';
-    $specialLetters = '!@#$%^&*';
-    $all = $smallLetters . $upperLetters . $numbers . $specialLetters;
-    $contPass = strlen($all);
-    $myPassword = substr(str_shuffle($all), 0, $lunghezzaPassword);
-
-    return $myPassword;
-};
+include __DIR__ . '/assets/functions/function.php'
 
 ?>
 
