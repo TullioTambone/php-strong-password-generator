@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-include __DIR__ . '/assets/functions/function.php'
+include __DIR__ . '/assets/functions/function.php';
 
 ?>
 
@@ -32,7 +31,8 @@ include __DIR__ . '/assets/functions/function.php'
         </div>
         <div class="container pt-2 form-section mt-2 rounded">
             <div class="col-12 text-start p-5">
-                <form action="" method="get">
+
+                <form action="userSection.php" method="GET">
                     <div class="d-flex justify-content-around align-items-center">
                         <p>Lunghezza Password:</p>
                         <input type="number" min="6" max="12" name="lunghezzaPassword" placeholder="lunghezza password" class="p-1 rounded" style="width:200px;">
@@ -47,13 +47,13 @@ include __DIR__ . '/assets/functions/function.php'
                             <input type="radio" name="RepeatLetters" id="no" value="no">
                             <label for="no">No</label>
 
-                            <input type="checkbox" name="" id="letters">
+                            <input type="checkbox" name="letters" id="letters">
                             <label for="letters">Lettere</label>
 
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" name="numbers" id="">
                             <label for="numbers">Numeri</label>
 
-                            <input type="checkbox" name="" id="simbols">
+                            <input type="checkbox" name="simbols" id="simbols">
                             <label for="simbols">Simboli</label>
                         </div>
                     </div>
