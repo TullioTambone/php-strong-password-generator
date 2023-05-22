@@ -29,7 +29,7 @@ function passwordGenerator($lunghezzaPassword, $lettersCheck, $numbersCheck, $si
     
     
     if ($multiLetters == 'yes') {
-        for ($i=0; $i < $lunghezzaPassword; $i++) { 
+        for ($i=0; strlen($myPassword) < $lunghezzaPassword; $i++) { 
             $random = rand(0, count($all));
             $myPassword .= $all[$random];
         }
